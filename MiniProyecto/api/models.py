@@ -117,3 +117,4 @@ class BlogPost(models.Model):
     
     def _str_(self):
         return self.title
+
