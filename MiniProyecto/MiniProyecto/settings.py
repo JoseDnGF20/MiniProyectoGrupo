@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u(i273fc*17wm$sg#ztp7+xwq@$-4ts+8qog1kx20859y+okvs'
+
+SECRET_KEY = 'django-insecure-4txzd)(!yj&c5%abe8q(9_)zf!7iie0belnaepk_e83&fyi1u8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework'
-    
 ]
 
 MIDDLEWARE = [
@@ -79,13 +79,17 @@ WSGI_APPLICATION = 'MiniProyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'miniproyectolibreria',  # El nombre de tu base de datos en MySQL
-        'USER': 'josedaniel',  # Tu usuario de MySQL
-        'PASSWORD': 'Encrypted$2004',  # La contraseña de tu usuario MySQL
-        'HOST': '127.0.0.1',  # Si estás ejecutando MySQL localmente
-        'PORT': '3306',  # El puerto por defecto de MySQL
+        'NAME': 'miniproyectolibreria',
+        'USER': 'josedaniel',
+        'PASSWORD': 'Encrypted$2004',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
