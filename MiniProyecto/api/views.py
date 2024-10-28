@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 
 from rest_framework import generics
 from .models import Category, Author, Editorial, Books, Type_Client, Client, Detail_Request, Request, Detail_Sale, Sale, Inventory, Review, ClosedDay, BookStatistic, BlogPost
@@ -182,3 +184,4 @@ class BlogPostListCreate(generics.ListCreateAPIView):
 class BlogPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = BlogPost.objects.all()
     BlogPostSerializer = BlogPost
+

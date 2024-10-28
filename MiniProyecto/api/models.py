@@ -1,5 +1,8 @@
 from django.db import models
 
+
+# Create your models here.
+=======
 class Category(models.Model):  # Model for categories
     category_name = models.CharField(max_length=100)
     category_id = models.CharField(max_length=100)
@@ -117,4 +120,5 @@ class BlogPost(models.Model):
     
     def _str_(self):
         return self.title
+
 
