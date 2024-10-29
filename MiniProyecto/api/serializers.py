@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Author, Editorial, Books, Type_Client, Client, Detail_Request, Request, Detail_Sale, Sale, Inventory, Review, ClosedDay, BookStatistic, BlogPost
+from .models import Category, Author, Editorial, Book, TypeClient, Client, DetailRequest, Request, DetailSale, Sale, Inventory, Review, ClosedDay, BookStatistic, BlogPost
 
 # cada serializer usado convierte el modelo en un formato como JSON para la API
 # y convierte datos de entrada a objetos de django para guardarlos en la base de datos
@@ -19,14 +19,14 @@ class EditorialSerializer(serializers.ModelSerializer):
         model = Editorial
         fields = '__all__'
 
-class BooksSerializer(serializers.ModelSerializer):
+class BookSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Books
+        model = Book
         fields = '__all__'
 
-class TypeClient_Serializer(serializers.ModelSerializer):
+class TypeClientSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Type_Client
+        model = TypeClient
         fields = '__all__'
 
 class ClientSerializer(serializers.ModelSerializer):
@@ -34,9 +34,9 @@ class ClientSerializer(serializers.ModelSerializer):
         model = Client
         fields = '__all__'
 
-class Detail_RequestSerializer(serializers.ModelSerializer):
+class DetailRequestSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Detail_Request
+        model = DetailRequest
         fields = '__all__'
 
 class RequestSerializer(serializers.ModelSerializer):
@@ -44,9 +44,9 @@ class RequestSerializer(serializers.ModelSerializer):
         model = Request
         fields = '__all__'
 
-class Detail_SaleSerializer(serializers.ModelSerializer):
+class DetailSaleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Detail_Sale
+        model = DetailSale
         fields = '__all__'
 
 class SaleSerializer(serializers.ModelSerializer):

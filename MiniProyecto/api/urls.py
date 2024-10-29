@@ -1,12 +1,13 @@
 from django.urls import path
 from . import views 
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('/client', views.ClientListCreate.as_view(), name='Client-List'),
     path('/clients/<int:pk', views.ClientDetail.as_view(), name= 'Client-Detail'),
     
-    path('/type_client', views.Type_ClientListCreate.as_view(), name='Type_Client-List'),
-    path('/type_client/<int:pk', views.Type_ClientDetail.as_view(), name='Type_Client-Detail'),
+    path('/type_client', views.TypeClientListCreate.as_view(), name='Type_Client-List'),
+    path('/type_client/<int:pk', views.TypeClientDetail.as_view(), name='Type_Client-Detail'),
     
     path('/category',views.CategoryListCreate.as_view(), name='Category-List'),
     path('/category/<int:pk', views.CategoryDetail.as_view(), name='Category-Detail'),
@@ -15,16 +16,16 @@ urlpatterns = [
     path('author/<int:pk', views.AuthorDetail.as_view(), name='Author_Detail'),
     
     path('/book', views.BookListCreate.as_view(), name='Book-List'),
-    path('/Book/int:pk', views.BookDetail.as_view(), name='Book_Detail'),
+    path('/book/int:pk', views.BookDetail.as_view(), name='Book_Detail'),
     
-    path('/detail_request', views.Detail_requestCreate.as_view(), name='Detail_request-List'),
-    path('/detail_request/<int:pk', views.Detail_requestDetail.as_view(), name='detail_request-Deatil'),
+    path('/detail_request', views.DetailRequestListCreate.as_view(), name='Detail_request-List'),
+    path('/detail_request/<int:pk', views.DetailRequestDetail.as_view(), name='detail_request-Deatil'),
     
     path('/editorial', views.EditorialListCreate.as_view(), name='Editorial-List'),
     path('/editorial/<int:pk', views.EditorialDetail.as_view(), name='Editorial-Deatil'),
     
-    path('/detail_sale', views.Detail_saleListCreate.as_view(), name='Detail_sale-List'),
-    path('detail_sale/<int:pk', views.Detail_saleDetail.view(), name='Deatail-Detail'),
+    path('/detail_sale', views.DetailSaleListCreate.as_view(), name='Detail_sale-List'),
+    path('detail_sale/<int:pk', views.DetailSaleDetail.view(), name='Deatail-Detail'),
     
     path('/blogpost', views.BlogPostListCreate.as_view(), name='BlogPost-List'),
     path('blogpost/<int:pk', views.BlogPostDetail.as_view(), name='BlogPost-Deatil'),
@@ -45,6 +46,6 @@ urlpatterns = [
     path('/sale/<int:pk', views.SaleDetail.as_view(), name='Sale-Detail'),
     
     path('/bookstatistic', views.BookStatisticListCreate.as_views(), name='BookStatistic'),
-    path('/bookstatistic/<int:pk', views.BookStatisticDatail.as_view(), name='BookStatistic-Detail')
+    path('/bookstatistic/<int:pk', views.BookStatisticDetail.as_view(), name='BookStatistic-Detail')
     
 ]
