@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-=======
+
 class Category(models.Model):  # Model for categories
     category_name = models.CharField(max_length=100)
     category_id = models.CharField(max_length=100)
@@ -30,7 +30,7 @@ class Book(models.Model):  # Model for books
     author = models.ForeignKey(Author, on_delete=models.CASCADE)  # Change field names to be more Django-conventional
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE)
-
+    
     def _str_(self):
         return self.book_title
     
