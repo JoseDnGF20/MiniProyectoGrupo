@@ -1,9 +1,6 @@
-from django.shortcuts import render
-
-
 from rest_framework import generics
-from .models import Category, Author, Editorial, Books, Type_Client, Client, Detail_Request, Request, Detail_Sale, Sale, Inventory, Review, ClosedDay, BookStatistic, BlogPost
-from .serializers import CategorySerializer, AuthorSerializer, EditorialSerializer, BooksSerializer, Type_ClientSerializer, ClientSerializer, Detail_RequestSerializer, RequestSerializer, Detail_SaleSerializer, SaleSerializer, InventorySerializer, ReviewSerializer, ClosedDaySerializer,BookStatisticSerializer, BlogPostSerializer
+from .models import Category, Author, Editorial, Book, TypeClient, Client, DetailRequest, Request, DetailSale, Sale, Inventory, Review, ClosedDay, BookStatistic, BlogPost
+from .serializers import CategorySerializer, AuthorSerializer, EditorialSerializer, BookSerializer, TypeClientSerializer, ClientSerializer, DetailRequestSerializer, RequestSerializer, DetailSaleSerializer, SaleSerializer, InventorySerializer, ReviewSerializer, ClosedDaySerializer,BookStatisticSerializer, BlogPostSerializer
 
 #Categoria
 class CategoryListCreate(generics.ListCreateAPIView):
@@ -44,25 +41,25 @@ class EditorialDetail(generics.RetrieveUpdateDestroyAPIView):
 
 #Books
 
-class BooksListCreate(generics.ListCreateAPIView):
-    queryset = Books.objects.all()
-    serializer_class = BooksSerializer
+class BookListCreate(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
 
-class BooksDetial(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Books.objects.all()
-    serializer_class = BooksSerializer
+class BookDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
     
 ##################################################################
 
 #Type_Cliente
 
-class Type_ClientListCreate(generics.ListCreateAPIView):
-    queryset = Type_Client.objects.all()
-    serializer_class = Type_ClientSerializer
+class TypeClientListCreate(generics.ListCreateAPIView):
+    queryset = TypeClient.objects.all()
+    serializer_class = TypeClientSerializer
 
-class Type_ClienteDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Type_Client.objects.all()
-    serializer_class = Type_ClientSerializer
+class TypeClienteDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = TypeClient.objects.all()
+    serializer_class = TypeClientSerializer
 
 ##################################################################
 
@@ -80,13 +77,13 @@ class ClientDetail(generics.RetrieveUpdateDestroyAPIView):
 
 #Detail_Request
 
-class Detail_RequestListCreate(generics.ListCreateAPIView):
-    queryset = Detail_Request.objects.all()
-    serializer_class = Detail_Request
+class DetailRequestListCreate(generics.ListCreateAPIView):
+    queryset = DetailRequest.objects.all()
+    serializer_class = DetailRequestSerializer
 
-class Detail_RequestDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Detail_Request.objects.all()
-    serializer_class = Detail_Request
+class DetailRequestDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DetailRequest.objects.all()
+    serializer_class = DetailRequestSerializer
 
 ##################################################################
 
@@ -94,47 +91,47 @@ class Detail_RequestDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class RequestListCreate(generics.ListCreateAPIView):
     queryset = Request.objects.all()
-    serializer_class = Request
+    serializer_class = RequestSerializer
     
 class RequestDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Request.objects.all()
-    serializer_class = Request
+    serializer_class = RequestSerializer
 
 ##################################################################
 
 #Detail_Sale
 
-class Detail_SaleListCreate(generics.ListCreateAPIView):
-    queryset = Detail_Sale.objects.all()
-    serializer_class = Detail_Sale
+class DetailSaleListCreate(generics.ListCreateAPIView):
+    queryset = DetailSale.objects.all()
+    serializer_class = DetailSaleSerializer
 
-class Detail_SaleDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Detail_Sale.objects.all()
-    serializer_class = Detail_Sale
+class DetailSaleDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DetailSale.objects.all()
+    serializer_class = DetailSaleSerializer
     
 ##################################################################
 
-#Detail_Sale
+#Sale
 
 class SaleListCreate(generics.ListCreateAPIView):
     queryset = Sale.objects.all()
-    serializer_class = Sale
+    serializer_class = SaleSerializer
 
 class SaleDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Sale.objects.all()
-    serializer_class = Sale
+    serializer_class = SaleSerializer
 
 ##################################################################
 
 #Inventary 
 
-class InventorytListCreate(generics.ListCreateAPIView):
+class InventoryListCreate(generics.ListCreateAPIView):
     queryset = Inventory.objects.all()
-    InventorySerializer = Inventory
+    serializer_class = InventorySerializer
 
 class InventoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Inventory.objects.all()
-    InventorySerializer = Inventory
+    serializer_class = InventorySerializer
 
 
 ##################################################################
@@ -143,45 +140,45 @@ class InventoryDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class ReviewListCreate(generics.ListCreateAPIView):
     queryset = Review.objects.all()
-    ReviewSerializer = Review
+    serializer_class = ReviewSerializer
 
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
-    ReviewSerializer = Review
+    serializer_class = ReviewSerializer
     
 ##################################################################
 
 #ClosedDay
 
 class ClosedDayListCreate(generics.ListCreateAPIView):
-    queryset = ClosedDay.all()
-    ClosedDaySerializer = ClosedDay
+    queryset = ClosedDay.objects.all()
+    serializer_class = ClosedDaySerializer
 
 class ClosedDayDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = ClosedDay.objects.all()
-    ClosedDaySerializer = ClosedDay
+    serializer_class = ClosedDaySerializer
     
 ##################################################################
 
 #BookStatistic
 
 class BookStatisticListCreate(generics.ListCreateAPIView):
-    queryset = BookStatistic.all()
-    BookStatisticSerializer = BookStatistic
-
-class ClosedDayDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = BookStatistic.objects.all()
-    BookStatisticSerializer = BookStatistic
+    serializer_class  = BookStatisticSerializer
+
+class BookStatisticDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = BookStatistic.objects.all()
+    serializer_class  = BookStatisticSerializer
     
 ##################################################################
 
 #BlogPost
 
 class BlogPostListCreate(generics.ListCreateAPIView):
-    queryset = BlogPost.all()
-    BlogPostSerializer = BlogPost
+    queryset = BlogPost.objects.all()
+    serializer_class  = BlogPostSerializer
 
 class BlogPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = BlogPost.objects.all()
-    BlogPostSerializer = BlogPost
+    serializer_class  = BlogPostSerializer
 
