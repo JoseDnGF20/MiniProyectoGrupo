@@ -155,7 +155,7 @@ class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
 #ClosedDay
 
 class ClosedDayListCreate(generics.ListCreateAPIView):
-    queryset = ClosedDay.all()
+    queryset = ClosedDay.objects.all()
     serializer_class=ClosedDaySerializer
 
 class ClosedDayDetail(generics.RetrieveUpdateDestroyAPIView):

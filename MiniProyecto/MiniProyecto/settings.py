@@ -85,13 +85,11 @@ WSGI_APPLICATION = 'MiniProyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'miniproyectolibreria',
-        'USER': 'josedaniel',
-        'PASSWORD': 'Encrypted$2004',
+        'NAME': 'miniproyecto_libreria',
+        'USER': 'jeffry',
+        'PASSWORD': 'Jffry.1126',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
