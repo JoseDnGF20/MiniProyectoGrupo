@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 # Create your models here.
@@ -34,6 +35,9 @@ class Book(models.Model):  # Model for books
     def _str_(self):
         return self.book_title
     
+
+    
+    
 class TypeClient(models.Model):  # Model for types of clients
     type_client = models.CharField(max_length=100)
 
@@ -41,10 +45,10 @@ class TypeClient(models.Model):  # Model for types of clients
         return self.type_client
     
 class Client(models.Model):  # Model for clients
-    client_name = models.CharField(max_length=100)
-    client_last_name = models.CharField(max_length=100)
-    client_email = models.EmailField(max_length=254)
-    client_phone = models.CharField(max_length=100)
+    client_name = models.CharField(max_length=100,unique=True)
+    client_last_name = models.CharField(max_length=100,unique=True)
+    client_email = models.EmailField(max_length=254,unique=True)
+    client_phone = models.PositiveBigIntegerField(unique=True)
     client_id = models.CharField(max_length=100)
     type_client = models.ForeignKey(TypeClient, on_delete=models.CASCADE)
 

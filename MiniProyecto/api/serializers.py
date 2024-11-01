@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Category, Author, Editorial, Book, TypeClient, Client, DetailRequest, Request, DetailSale, Sale, Inventory, Review, ClosedDay, BookStatistic, BlogPost
+from django.contrib.auth.models import User
 
 # cada serializer usado convierte el modelo en un formato como JSON para la API
 # y convierte datos de entrada a objetos de django para guardarlos en la base de datos
@@ -79,3 +80,13 @@ class BlogPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogPost 
         fields = '__all__'  
+        
+class RegistroSerializer(serializers.ModelSerializer):
+    class Meta: #esta juega le decimos que datos queremos guardar
+        model= User #Aqui le decimos de donde en la tabla auth_user
+        fields= ( "username", "password", ) #las filas donde se van a guardar la informacion
+    def create(self, validated_data): #usamos  el metodo create basicamente crea un usuario
+        user= User(**validated_data) #recibe los datos cuando alguien se quiere registar
+        user.set_password(validated_data['password'])#luego aca codifica la contraseña ingresada
+        user.save()# y la guarda
+        return user

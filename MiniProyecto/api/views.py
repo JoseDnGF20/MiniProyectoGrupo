@@ -1,6 +1,8 @@
 from rest_framework import generics
 from .models import Category, Author, Editorial, Book, TypeClient, Client, DetailRequest, Request, DetailSale, Sale, Inventory, Review, ClosedDay, BookStatistic, BlogPost
-from .serializers import CategorySerializer, AuthorSerializer, EditorialSerializer, BookSerializer, TypeClientSerializer, ClientSerializer, DetailRequestSerializer, RequestSerializer, DetailSaleSerializer, SaleSerializer, InventorySerializer, ReviewSerializer, ClosedDaySerializer,BookStatisticSerializer, BlogPostSerializer
+from .serializers import CategorySerializer, AuthorSerializer, EditorialSerializer, BookSerializer, TypeClientSerializer, ClientSerializer, DetailRequestSerializer, RequestSerializer, DetailSaleSerializer, SaleSerializer, InventorySerializer, ReviewSerializer, ClosedDaySerializer,BookStatisticSerializer, BlogPostSerializer, RegistroSerializer
+from rest_framework.permissions import IsAuthenticated,AllowAny
+from django.contrib.auth.models import User
 
 #Categoria
 class CategoryListCreate(generics.ListCreateAPIView):
@@ -182,3 +184,10 @@ class BlogPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
 
+
+class RegistroView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegistroSerializer
+    permission_classes= [AllowAny]
+
+#class books_per_Author(generics.CreateAPIView):
