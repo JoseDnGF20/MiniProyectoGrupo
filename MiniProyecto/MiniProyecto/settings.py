@@ -39,14 +39,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'rest_framework',
-    'rest_framework_simplejwt'
+    'rest_framework'
+    #'rest_framework_simplejwt'
 ]
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'res framework simplejwt.authentication.JWTAuthentication',
-    ),
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'res framework simplejwt.authentication.JWTAuthentication',
+#     ),
+# }
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAuthenticated',
+#     ),
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,10 +95,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'miniproyecto_libreria',
-        'USER': 'josedaniel',
-        'PASSWORD': 'Encrypted$2004',
+        'USER': 'root',
+        'PASSWORD': 'M4d0lch3',
         'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'PORT': '3306',
     }
 }
 
